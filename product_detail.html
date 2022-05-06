@@ -20,9 +20,8 @@
                     <div class="row">
                         <div id="logo-theme" class="logo">
                             <a href="/index.html">
-								<img src="./images/store_1619521261_277.png"
-									class="img-responsive" alt="LOGO">
-							</a>
+                                <img src="./images/store_1619521261_277.png" class="img-responsive" alt="LOGO">
+                            </a>
                         </div>
                         <div class="topbar-list">
                             <div class="search">
@@ -101,19 +100,14 @@
                                 <div class="product__photo">
                                     <div class="photo-container">
                                         <div class="photo-main">
-                                            <img src="https://mcdn.nhanh.vn/store/7239/ps/20220306/14_800x800.jpg"
-                                                alt="totoro slice">
+                                            <img src="/images/14_thumb_400x400.jpg" alt="totoro slice">
                                         </div>
                                         <div class="photo-album">
                                             <ul>
-                                                <li><img src="https://mcdn.nhanh.vn/store/7239/ps/20220306/14_800x800.jpg"
-                                                        alt="totoro"></li>
-                                                <li><img src="https://mcdn.nhanh.vn/store/7239/ps/20220306/15_800x798.jpg"
-                                                        alt="half apple"></li>
-                                                <li><img src="https://mcdn.nhanh.vn/store/7239/ps/20220306/16_800x765.jpg"
-                                                        alt="totoro"></li>
-                                                <li><img src="https://mcdn.nhanh.vn/store/7239/ps/20220306/16_800x765.jpg"
-                                                        alt="apple top"></li>
+                                                <li><img src="images/14_thumb_400x400.jpg" alt="totoro"></li>
+                                                <li><img src="/images/15_800x798.jpg" alt="half apple"></li>
+                                                <li><img src="/images/16_800x765.jpg" alt="totoro"></li>
+                                                <li><img src="/images/16_800x765.jpg" alt="apple top"></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -154,14 +148,28 @@
                                             <div class="quantity-number pull-left">
                                                 <span>Số lượng: </span>
                                                 <input type="text" name="quantity" readonly="readonly"
-                                                    id="input-quantity" class="form-control" size="2" max="52" min="1"
-                                                    value="1">
+                                                    id="input-quantity" class="form-control" size="3" max="52" min="1"
+                                                    value="1" style="height: 30px;">
                                             </div>
                                             <div class="quantity-wrapper pull-left">
-                                                <span class="add-up add-action fa fa-plus"></span>
-                                                <span class="add-down add-action fa fa-minus"></span>
+                                                <span class="add-up add-action form-control fa fa-plus"
+                                                    onclick="increment()"></span>
+                                                <span class="add-down add-action form-control fa fa-minus"
+                                                    onclick="decrement()"></span>
                                             </div>
-                                            <input type="hidden" name="product_id" value="45">
+
+                                            <script>
+                                                var quantity = document.querySelector('input[name="quantity"]');
+
+                                                function decrement() {
+                                                    quantity.value <= 1 ? quantity.value = 1 : quantity.value--;
+                                                }
+
+                                                function increment() {
+                                                    quantity.value >= 52 ? alert('Vui lòng mua với số lượng nhỏ hơn 52') : quantity.value++;
+                                                }
+                                            </script>
+
                                         </div>
                                         <div class="product-action pull-left">
                                             <div class="cart-btn pull-left">
@@ -401,8 +409,8 @@
                                     target="_blank" rel="noreferrer noopener"><img alt="Instagram"
                                         src="https://mcdn.nhanh.vn/website/template/250/contentKey/320/i.png"
                                         style="width:40px;"></a> &nbsp; <a
-                                    href="/gian-hang-totoro-tren-cac-trang-tmdt-shopee-tiki-n86058.html"
-                                    target="_blank" rel="noreferrer noopener"> <img alt=""
+                                    href="/gian-hang-totoro-tren-cac-trang-tmdt-shopee-tiki-n86058.html" target="_blank"
+                                    rel="noreferrer noopener"> <img alt=""
                                         src="https://mcdn.nhanh.vn/website/template/250/contentKey/7429/shopee.png"
                                         style="width:40px;"></a></div>
                             <div><br></div>
@@ -412,8 +420,8 @@
                             <div><a href="https://online.gov.vn/HomePage/CustomWebsiteDisplay.aspx?DocId=53561"
                                     target="_blank" rel="noreferrer noopener"><img alt=""
                                         src="https://mcdn.nhanh.vn/website/template/250/contentKey/3710/nkvhgbocongthuong.png"
-                                        style="height:68px;"><img alt=""
-                                        src="https://mcdn.nhanh.vn/boCongThuong.png" style="height:68px;"></a></div>
+                                        style="height:68px;"><img alt="" src="https://mcdn.nhanh.vn/boCongThuong.png"
+                                        style="height:68px;"></a></div>
                         </div>
                     </div>
 
