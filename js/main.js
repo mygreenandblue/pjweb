@@ -11,12 +11,12 @@ function Slide(banner, links) {
 }
 
 var shipping = new Slide(
-    banner = "https://mcdn.nhanh.vn/store/7239/bn/freeship_website_01.png",
+    banner = "/Images/freeship_website_01.png",
     links = "/shipping.html"
 );
 
 var store = new Slide(
-    banner = "https://mcdn.nhanh.vn/store/7239/bn/lg22.jpg",
+    banner = "/Images/lg22.jpg",
     links = "/store.html"
 );
 
