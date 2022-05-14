@@ -1,3 +1,5 @@
+//Slide top
+
 var slideIndex = 0;
 var currentSlideIndex = 0;
 var slideArray = [];
@@ -11,12 +13,12 @@ function Slide(banner, links) {
 }
 
 var shipping = new Slide(
-    banner = "/Images/freeship_website_01.png",
+    banner = "/images/freeship_website_01.png",
     links = "/shipping.html"
 );
 
 var store = new Slide(
-    banner = "/Images/lg22.jpg",
+    banner = "/images/lg22.jpg",
     links = "/store.html"
 );
 
@@ -78,6 +80,7 @@ function nextSlide() {
 
     currentSlideIndex = nextSlideIndex;
 }
+
 setInterval(function () {
     nextSlide()
 }, 4000);
