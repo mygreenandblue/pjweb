@@ -73,20 +73,20 @@ require_once("classes/dbConnection.php");
             <div class="container">
                 <div class="menu">
                     <ul id="mainmenu">
-                        <?
+                        <?php
                         // query menu from db
                         $dbConnection = new dbConnection();
                         $conn = $dbConnection->getConnection();
 
-                        $sql = "SELECT name FROM users";
+                        $sql = "SELECT email FROM users";
                         $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                             $stt = 0;
                             while ($row = $result->fetch_assoc()) {
                                 $stt++;
                         ?>
-                                <li><a>MENU <?= $row["name"] ?></a></li>
-                        <?
+                                <li><a>MENU <?= $row["email"] ?></a></li>
+                        <?php
                             }
                         }
                         ?>
