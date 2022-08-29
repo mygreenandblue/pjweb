@@ -4,7 +4,7 @@ class dbConnection
     private $servername = "localhost";
     private $username = "root";
     private $password = "";
-    private $dbname = "db_totoro";
+    private $dbname = "php_login";
 
     public function __construct()
     {
