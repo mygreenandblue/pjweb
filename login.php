@@ -1,3 +1,50 @@
+<?php
+session_start();
+require_once("functions/functions.php");
+require_once("classes/dbConnection.php");
+
+$username = getValue("username", "POST", "str", "");
+$password = getValue("password", "POST", "str", "");
+$action = getValue("action", "POST", "str", "");
+
+
+var_dump($_POST);
+var_dump($username);
+var_dump($password);
+
+$errorMsg = "";
+if ($action == "login") {
+    if ($username == "") {
+        $errorMsg .= "&bull; Vui lòng nhập User Name.<br />";
+    }
+    if ($password == "") {
+        $errorMsg .= "&bull; Vui lòng nhập Password.<br />";
+    }
+
+    // Nếu có đủ dữ liệu POST thì xác thực
+    if ($errorMsg == "") {
+
+        $dbConnection = new dbConnection();
+        $conn = $dbConnection->getConnection();
+        
+        $sql_query = "select count(*) as cntUser from users where email='".$username."' and password='".$password."'";
+        $result = mysqli_query($conn,$sql_query);
+        $row = mysqli_fetch_array($result);
+
+        $count = $row['cntUser'];
+
+        if($count > 0){
+            // Success
+            // echo "Success";
+            $_SESSION["logged"] = 1;
+            header("Location: index.php");
+        } else {
+            $errorMsg .= "&bull; Thông tin đăng nhập không đúng. Vui lòng thử lại.<br />";
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -102,7 +149,7 @@
         </div>
 
         <!--form-->
-        <div class="ip1">
+        <!-- <div class="ip1">
             <input class="in4" type="email" autofocus placeholder="Nhập emai hoặc tên đăng nhập">
             <input class="in4" type="password" placeholder="Mật khẩu">
             <div id="login">
@@ -133,7 +180,47 @@
                         google</p>
                 </a>
             </div>
-        </div>
+        </div> -->
+
+        <form class="ip1" action="" method="post">
+            <div class="form-group">
+                <input class="in4" type="email" autofocus placeholder="Nhập emai hoặc tên đăng nhập" name="username" id="username" class="form-control" value="<?= $username ?>">
+            </div>
+            
+            <div class="form-group">
+                <input class="in4" type="password" placeholder="Nhập mật khẩu" name="password" id="password" class="form-control" value="<?= $password ?>">
+            </div>
+
+            <div class="form-group">
+                <input type="hidden" id="action" name="action" value="login" />
+                <input id="login" type="submit" name="submit" class="btn btn-info btn-md" value="Đăng nhập">
+            </div>
+
+            <a href="#">
+                <p style="text-align:center;margin-top: 12px;
+                color: black;font-size: 15px; ">Quên mật khẩu?</p>
+            </a>
+
+            <p style="text-align:center;margin-top: 10px;
+            color: grey;font-size: 15px;">Hoặc đăng nhập với</p>
+
+            <div style="width: 100%; height: 100%; background-color: #2e4b88; margin-top: 12px;">
+                <a href="https://facebook.com">
+                    <p style="text-align:center;color: white;
+                    font-size: 13px;position: relative; top: 10px;"><i class="fa-brands fa-facebook-f"></i> Đăng nhập
+                        bằng facebook</p>
+                </a>
+            </div>
+
+            <div style="width: 100%; height: 100%; background-color: orangered; margin-top: 12px;">
+                <a href="https://accounts.google.com/">
+                    <p style="text-align:center;color: white;
+                    font-size: 13px;position: relative; top: 10px;"><i class="fa-brands fa-google"></i> Đăng nhập bằng
+                        google</p>
+                </a>
+            </div>
+        </form>
+
     </div>
     <!--End main-->
     <div style="width: 40%; height: 100px;margin: auto; border-bottom: 1px black solid;"></div>
