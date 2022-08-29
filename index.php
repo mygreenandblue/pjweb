@@ -85,7 +85,7 @@ require_once("classes/dbConnection.php");
                             while ($row = $result->fetch_assoc()) {
                                 $stt++;
                         ?>
-                                <li><a>MENU <?= $row["email"] ?></a></li>
+                                <li><a>l1 <?= $row["email"] ?></a></li>
                         <?php
                             }
                         }
