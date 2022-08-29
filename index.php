@@ -123,7 +123,7 @@ require_once("classes/dbConnection.php");
                 <div class="container-fluid text-center">
                     <img src="images/flower_string.png" width="30%">
                 </div>
-                <?
+                <?php
                 for ($i = 1; $i <= 100; $i++) {
                 ?>
                     <div class="col-md-4 col-sm-6">
@@ -159,7 +159,7 @@ require_once("classes/dbConnection.php");
                             </div>
                         </a>
                     </div>
-                <?
+                <?php
                 }
                 ?>
             </div>
