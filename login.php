@@ -73,11 +73,9 @@ if ($action == "login") {
                         <div class="search">
                             <form action="/search" method="get" style="padding-top: 2px;">
                                 <div id="search" class="box-search input-group">
-                                    <input type="text" name="q" placeholder="Tìm kiếm ...." class="form-control"
-                                        id="edit_search">
+                                    <input type="text" name="q" placeholder="Tìm kiếm ...." class="form-control" id="edit_search" style="height:31px;">
                                     <span class="input-group-btn">
-                                        <button type="button" class="button-search" onClick="" value="find"><i
-                                                class="fa fa-search"></i></button>
+                                        <button type="button" class="button-search" onClick="" value="find"><i class="fa fa-search"></i></button>
                                     </span>
                                 </div>
                             </form>
@@ -85,7 +83,7 @@ if ($action == "login") {
                         <div>
                             <ul class="login links">
                                 <li>
-                                    <a rel="nofollow" href="/Login.html"><i class="fa-fw fa fa-user"></i> Đăng
+                                    <a rel="nofollow" href="/Login.php"><i class="fa-fw fa fa-user"></i> Đăng
                                         nhập</a>
                                 </li>
                                 <li>
@@ -101,10 +99,7 @@ if ($action == "login") {
                             <div id="cart" class="clearfix">
                                 <i class="fa fa-shopping-cart icon-cart"></i>
                                 <div class="cart-inner media-body">
-                                    <span id="cart-total"
-                                        style="color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">0<span
-                                            class="text"
-                                            style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 13px; color: #fff;">
+                                    <span id="cart-total" style="color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">0<span class="text" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 13px; color: #fff;">
                                             Sản Phẩm</span></span>
                                 </div>
                             </div>
@@ -119,17 +114,28 @@ if ($action == "login") {
             <div class="container">
                 <div class="menu">
                     <ul id="mainmenu">
-                        <li><a>THÚ BÔNG & MÔ HÌNH</a></li>
-                        <li><a>THỜI TRANG</a></li>
-                        <li><a>VĂN PHÒNG PHẨM</a></li>
-                        <li><a>ĐỒ CÔNG NGHỆ</a></li>
-                        <li><a>ĐỒ DÙNG TIỆN ÍCH</a></li>
+                        <?php
+                        // query menu from db
+                        $dbConnection = new dbConnection();
+                        $conn = $dbConnection->getConnection();
+
+                        $sql = "SELECT menu_title FROM menu_list";
+                        $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                            $stt = 0;
+                            while ($row = $result->fetch_assoc()) {
+                                $stt++;
+                        ?>
+                                <li><a><?= $row["menu_title"] ?></a></li>
+                        <?php
+                            }
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
-
     <!--main-->
 
     <div class="form">

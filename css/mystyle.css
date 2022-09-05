@@ -74,9 +74,8 @@ form {
 }
 
 .input-group .form-control {
-    width: 200%;
-    margin-bottom: 0;
-    height: 18px;
+    width: 200px;
+    height: 31px;
     font-size: 13px;
     line-height: 1.428571429;
     vertical-align: middle;

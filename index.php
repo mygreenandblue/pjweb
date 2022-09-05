@@ -2,6 +2,7 @@
 // require_once("config.php");
 require_once("functions/functions.php");
 require_once("classes/dbConnection.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +43,7 @@ require_once("classes/dbConnection.php");
                         <div>
                             <ul class="login links">
                                 <li>
-                                    <a rel="nofollow" href="/Login.html"><i class="fa-fw fa fa-user"></i> Đăng
+                                    <a rel="nofollow" href="/login.php"><i class="fa-fw fa fa-user"></i> Đăng
                                         nhập</a>
                                 </li>
                                 <li>
@@ -78,14 +79,14 @@ require_once("classes/dbConnection.php");
                         $dbConnection = new dbConnection();
                         $conn = $dbConnection->getConnection();
 
-                        $sql = "SELECT email FROM users";
+                        $sql = "SELECT menu_title FROM menu_list";
                         $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                             $stt = 0;
                             while ($row = $result->fetch_assoc()) {
                                 $stt++;
                         ?>
-                                <li><a>l1 <?= $row["email"] ?></a></li>
+                                <li><a><?= $row["menu_title"] ?></a></li>
                         <?php
                             }
                         }
