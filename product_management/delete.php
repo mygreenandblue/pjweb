@@ -10,7 +10,7 @@ if (isset($_GET['id'])) {
     $dbConnection = new dbConnection();
     $conn = $dbConnection->getConnection();
 
-    $sql = "DELETE FROM 'products' WHERE 'id'='$product_id'";
+    $sql = "DELETE FROM products WHERE products.id = '${product_id}'";
     $result = $conn->query($sql);
 
     if ($result == TRUE) {
